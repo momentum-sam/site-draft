@@ -1,0 +1,50 @@
+import React from 'react';
+import { DitherOverlay } from './components/DitherOverlay';
+import { Header } from './components/Header';
+import { HeroSection } from './components/HeroSection';
+import { VideoSection } from './components/VideoSection';
+import { InteractiveHeroVideo } from './components/InteractiveHeroVideo';
+import { LogoWallSection } from './components/LogoWallSection';
+import { VortexSection } from './components/VortexSection';
+import { FooterSection } from './components/FooterSection';
+import { FeatureCard } from './components/FeatureCard';
+import { OurWorkSection } from './components/OurWorkSection';
+import { CapabilitiesSection } from './components/CapabilitiesSection';
+import { InsightsSection } from './components/InsightsSection';
+
+const App: React.FC = () => {
+  const videoRef = React.useRef<HTMLDivElement>(null);
+  const [isLocked, setIsLocked] = React.useState(false);
+
+  return (
+    <main className="relative text-white font-sans selection:bg-[#FDB447] selection:text-white" style={{ backgroundColor: 'var(--bg-dark)' }}>
+
+      {/* Global Overlay Effects */}
+      <DitherOverlay />
+
+      <InteractiveHeroVideo targetRef={videoRef} setIsLocked={setIsLocked} />
+
+      <Header />
+
+      {/* PRE-VORTEX CONTENT */}
+      <div className="relative z-20 -mb-40" style={{ backgroundColor: 'var(--bg-dark)' }} data-theme="dark">
+        <HeroSection />
+        <VideoSection ref={videoRef} isLocked={isLocked} />
+        <LogoWallSection />
+      </div>
+
+      <VortexSection />
+
+      <OurWorkSection />
+
+      <CapabilitiesSection />
+
+      <InsightsSection />
+
+      <FooterSection />
+
+    </main>
+  );
+};
+
+export default App;

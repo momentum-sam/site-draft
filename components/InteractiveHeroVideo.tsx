@@ -147,7 +147,7 @@ export const InteractiveHeroVideo: React.FC<InteractiveHeroVideoProps> = ({ targ
             <video
                 ref={videoRef}
                 className="w-full h-full object-cover"
-                src="../assets/reel.mp4"
+                src="./assets/reel.mp4"
                 autoPlay
                 muted={isMuted}
                 loop

@@ -5,7 +5,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
-    base: process.env.VITE_BASE_URL || '/',
+    // CHANGE 1: Set the base to your repository name with slashes
+    base: '/site-draft/',
+
     server: {
       port: 3000,
       host: '0.0.0.0',

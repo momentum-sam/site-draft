@@ -27,7 +27,7 @@ jobs:
         run: npm run build
         env:
           # Vite needs the correct base path for GitHub Pages. Replace <repo-name> with your repo name.
-          VITE_BASE_URL: "/<repo-name>/"
+          VITE_BASE_URL: "/site-draft/"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

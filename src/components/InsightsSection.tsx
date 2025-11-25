@@ -73,7 +73,7 @@ export const InsightsSection: React.FC = () => {
     ];
 
     return (
-        <section className="relative py-24 px-8 md:px-16" style={{ backgroundColor: 'var(--bg-dark)' }} data-theme="dark">
+        <section className="relative z-20 py-24 px-8 md:px-16 rounded-t-[32px]" style={{ backgroundColor: 'var(--bg-dark)' }} data-theme="dark">
             <div className="max-w-[1640px] mx-auto">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
                     <h2 className="lg:w-1/2 text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-tight text-white">

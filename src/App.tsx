@@ -11,6 +11,7 @@ import { FeatureCard } from './components/FeatureCard';
 import { OurWorkSection } from './components/OurWorkSection';
 import { CapabilitiesSection } from './components/CapabilitiesSection';
 import { InsightsSection } from './components/InsightsSection';
+import { LocationsSection } from './components/LocationsSection';
 
 const App: React.FC = () => {
   const videoRef = React.useRef<HTMLDivElement>(null);
@@ -38,6 +39,8 @@ const App: React.FC = () => {
       <OurWorkSection />
 
       <CapabilitiesSection />
+
+      <LocationsSection />
 
       <InsightsSection />
 

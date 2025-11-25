@@ -5,9 +5,10 @@ import { ArrowRight, Linkedin, Facebook, Instagram, Youtube, Twitter } from 'luc
 export const FooterSection: React.FC = () => {
     return (
         <section className="relative z-20 bg-[#030303] pt-20 pb-8 px-4 md:px-8">
-            <div className="max-w-[1400px] mx-auto">
+            <div className="max-w-[1640px] mx-auto">
                 {/* Contact Form Card */}
                 <motion.div
+                    id="contact-form"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}

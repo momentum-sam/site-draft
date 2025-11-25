@@ -6,11 +6,8 @@ export const HeroSection: React.FC = () => {
         <section className="h-screen flex flex-col justify-between px-6 pb-12 pt-32 md:px-12 md:pb-16 relative">
             <div className="flex-1"></div>
             <div className="flex flex-col md:flex-row justify-end md:justify-between items-start md:items-end gap-12">
-                <div className="max-w-4xl">
-                    <div className="mb-6 inline-block px-3 py-1 border border-white/20 rounded-full text-sm text-gray-400 uppercase tracking-wider">
-                        Globally rated #1 on Clutch - 2017-2024
-                    </div>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95]">
+                <div className="max-w-5xl">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter leading-[0.95]">
                         We design what moves business forward
                     </h1>
                 </div>

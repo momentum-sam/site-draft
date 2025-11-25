@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { SectionLink } from './SectionLink';
 
 interface Capability {
     id: string;
@@ -19,7 +19,7 @@ const capabilities: Capability[] = [
 export const CapabilitiesSection: React.FC = () => {
     return (
         <section className="relative z-20 bg-white text-black px-8 md:px-16 py-16 md:py-24" data-theme="light">
-            <div className="max-w-[1400px] mx-auto grid grid-cols-12 gap-x-8">
+            <div className="max-w-[1640px] mx-auto grid grid-cols-12 gap-x-8">
                 {/* Top Section - Heading */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -44,15 +44,9 @@ export const CapabilitiesSection: React.FC = () => {
                     <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                         This is how we combine insight, design, and technology to help you build what matters most.
                     </p>
-                    <a
-                        href="#"
-                        className="inline-flex items-center gap-2 text-black font-medium hover:text-[#FDB447] transition-colors duration-300 group"
-                    >
-                        <span className="border-b border-black group-hover:border-[#FDB447] transition-colors duration-300">
-                            Learn more about what we do
-                        </span>
-                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
-                    </a>
+                    <SectionLink href="#" theme="light">
+                        Learn more about what we do
+                    </SectionLink>
                 </motion.div>
 
                 {/* Capabilities List */}

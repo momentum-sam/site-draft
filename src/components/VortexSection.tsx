@@ -42,7 +42,7 @@ export const VortexSection: React.FC = () => {
     const p3PointerEvents = useTransform(smoothProgress, (v) => v > 0.80 ? 'auto' : 'none');
 
     return (
-        <div ref={vortexContainerRef} className="relative h-[500vh] z-10 -mb-40" style={{ backgroundColor: 'var(--bg-dark)' }} data-theme="dark">
+        <div ref={vortexContainerRef} className="relative h-[500vh] z-10 -mb-10" style={{ backgroundColor: 'var(--bg-dark)' }} data-theme="dark">
 
             {/* Sticky Viewport Wrapper */}
             <div className="sticky top-0 left-0 w-full h-screen overflow-hidden">
@@ -74,7 +74,7 @@ export const VortexSection: React.FC = () => {
                         style={{ opacity: p1Opacity, scale: p1Scale, y: p1Y, pointerEvents: p1PointerEvents as any }}
                     >
                         <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white font-['Open_Sauce_Sans'] mb-6 leading-[1.1]">
-                            Infinite possiblities become infinite noise
+                            Infinite possiblities mean infinite noise
                         </h2>
                     </motion.div>
 
@@ -97,10 +97,16 @@ export const VortexSection: React.FC = () => {
                             So you can turn direction into momentum
                         </h2>
                         <div className="pointer-events-auto">
-                            <button className="group relative inline-flex items-center gap-4 px-10 py-5 bg-white text-black rounded-full font-bold hover:bg-[#FDB447] hover:text-white hover:scale-105 transition-all duration-300">
-                                <span>Let’s define what's next together</span>
+                            <button
+                                onClick={() => {
+                                    const contactForm = document.getElementById('contact-form');
+                                    contactForm?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                }}
+                                className="group relative inline-flex items-center gap-4 px-10 py-5 bg-white text-black rounded-full font-bold hover:bg-[#FDB447] hover:text-black transition-all duration-300 cursor-pointer"
+                            >
+                                <span>Let's define what's next together</span>
                                 <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-colors">
-                                    <ArrowRight size={14} className="group-hover:-rotate-45 transition-transform duration-300" />
+                                    <ArrowRight size={14} className="group-hover:rotate-90 transition-transform duration-300" />
                                 </div>
                             </button>
                         </div>

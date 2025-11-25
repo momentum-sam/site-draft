@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { SectionLink } from './SectionLink';
 
 interface CaseStudy {
     title: string;
-    client: string;
+    tags: string;
     category: string;
     description: string;
     image: string;
@@ -16,44 +17,45 @@ interface CaseStudy {
 
 const caseStudies: CaseStudy[] = [
     {
-        title: 'AI-Powered Analytics Platform',
-        client: 'TechCorp',
+        title: 'Breaking down the crypto barrier for all',
+        tags: 'Strategy, Design, Research',
         category: 'Product Design',
-        description: 'Reimagining data visualization for enterprise teams with intelligent insights and predictive analytics.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+        description: 'Make investing more accessible, educating and helping Bitstamp expand its reach.',
+        image: 'src/assets/img/thumbnail.png',
         metrics: [
             { label: 'User Engagement', value: '+240%' },
             { label: 'Time Saved', value: '15hrs/week' },
         ],
     },
     {
-        title: 'Next-Gen E-Commerce Experience',
-        client: 'RetailPro',
-        category: 'UX Strategy',
-        description: 'Creating a seamless shopping journey with AR try-on and personalized recommendations.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-        metrics: [
-            { label: 'Conversion Rate', value: '+180%' },
-            { label: 'Cart Abandonment', value: '-65%' },
-        ],
-    },
-    {
-        title: 'Healthcare Dashboard Redesign',
-        client: 'MediFlow',
+        title: 'Empowering athletes to perform at their best',
+        tags: 'Strategy, Design, Research',
         category: 'Interface Design',
-        description: 'Streamlining patient data management with intuitive workflows and real-time collaboration.',
-        image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop',
+        description: 'Helping every athlete train smarter, recover faster, and stay motivated with personalized digital experiences that elevate performance.',
+        image: 'src/assets/img/thumbnail-1.png',
         metrics: [
             { label: 'Task Completion', value: '+95%' },
             { label: 'Error Reduction', value: '-78%' },
         ],
     },
+    {
+        title: 'Connecting the global health community',
+        tags: 'Strategy, Design, Research',
+        category: 'UX Strategy',
+        description: 'A digital collaboration hub that empowers healthcare professionals worldwide to share, learn, and act together in real time.',
+        image: 'src/assets/img/thumbnail-2.png',
+        metrics: [
+            { label: 'Conversion Rate', value: '+180%' },
+            { label: 'Cart Abandonment', value: '-65%' },
+        ],
+    },
+
 ];
 
 export const OurWorkSection: React.FC = () => {
     return (
         <section className="relative z-20 bg-white rounded-t-[32px] px-8 md:px-16 py-16 md:py-24" data-theme="light">
-            <div className="max-w-[1400px] mx-auto">
+            <div className="max-w-[1640px] mx-auto">
                 {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -62,10 +64,14 @@ export const OurWorkSection: React.FC = () => {
                     transition={{ duration: 0.6 }}
                     className="mb-16"
                 >
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
-                        <h2 className="lg:col-span-6 text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-tight text-black">
-                            How we reimagine your digital experiences
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
+                        <h2 className="lg:w-2/3 text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-tight text-black">
+                            Experiences reimagined for businesses like yours
                         </h2>
+
+                        <SectionLink href="#" theme="light">
+                            View our work
+                        </SectionLink>
                     </div>
                 </motion.div>
 
@@ -91,13 +97,6 @@ export const OurWorkSection: React.FC = () => {
                                 {/* Overlay on Hover */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                                {/* Category Badge */}
-                                <div className="absolute top-4 left-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full">
-                                    <span className="text-xs font-semibold text-black uppercase tracking-wider">
-                                        {study.category}
-                                    </span>
-                                </div>
-
                                 {/* Arrow Icon */}
                                 <div className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
                                     <ArrowUpRight size={20} className="text-black" />
@@ -107,12 +106,12 @@ export const OurWorkSection: React.FC = () => {
                             {/* Content */}
                             <div className="space-y-4">
                                 <div>
+                                    <p className="text-sm text-gray-500 font-medium mb-3 uppercase">
+                                        {study.tags}
+                                    </p>
                                     <h3 className="text-2xl font-bold text-black mb-2 group-hover:text-[#FDB447] transition-colors duration-300">
                                         {study.title}
                                     </h3>
-                                    <p className="text-sm text-gray-500 font-medium mb-3">
-                                        {study.client}
-                                    </p>
                                     <p className="text-gray-600 leading-relaxed">
                                         {study.description}
                                     </p>
@@ -121,20 +120,6 @@ export const OurWorkSection: React.FC = () => {
                         </motion.div>
                     ))}
                 </div>
-
-                {/* View All CTA */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="mt-16 text-center"
-                >
-                    <button className="group/btn inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-full font-bold hover:bg-[#FDB447] transition-all duration-300 hover:scale-105">
-                        <span>View all case studies</span>
-                        <ArrowUpRight size={18} className="group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform duration-300" />
-                    </button>
-                </motion.div>
             </div>
         </section>
     );

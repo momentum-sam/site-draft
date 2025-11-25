@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { SectionLink } from './SectionLink';
 
 interface InsightCardProps {
     title: string;
@@ -74,19 +74,15 @@ export const InsightsSection: React.FC = () => {
 
     return (
         <section className="relative py-24 px-8 md:px-16 bg-[#030303]" data-theme="dark">
-            <div className="max-w-[1400px] mx-auto">
+            <div className="max-w-[1640px] mx-auto">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
                     <h2 className="lg:w-1/2 text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-tight text-white">
                         We’re continuing to shape what’s next
                     </h2>
 
-                    <a
-                        href="#"
-                        className="group flex items-center gap-2 text-lg text-white hover:text-[#FDB447] transition-colors pb-2 border-b border-transparent hover:border-[#FDB447]"
-                    >
+                    <SectionLink href="#" theme="dark">
                         View our insights
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </a>
+                    </SectionLink>
                 </div>
 
                 <div className="grid grid-cols-1 gap-1">

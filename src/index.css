@@ -42,6 +42,17 @@ html {
     background: #555;
 }
 
+/* Text Selection Styling */
+::selection {
+    background-color: #FDB447;
+    color: #000000;
+}
+
+::-moz-selection {
+    background-color: #FDB447;
+    color: #000000;
+}
+
 /* Dither utility class */
 .bg-dither {
     background-image: radial-gradient(#ffffff 1px, transparent 1px);

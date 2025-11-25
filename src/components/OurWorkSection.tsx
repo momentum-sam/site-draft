@@ -2,6 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { SectionLink } from './SectionLink';
+import thumbnail from '../assets/img/thumbnail.png';
+import thumbnail1 from '../assets/img/thumbnail-1.png';
+import thumbnail2 from '../assets/img/thumbnail-2.png';
 
 interface CaseStudy {
     title: string;
@@ -21,18 +24,18 @@ const caseStudies: CaseStudy[] = [
         tags: 'Strategy, Design, Research',
         category: 'Product Design',
         description: 'Make investing more accessible, educating and helping Bitstamp expand its reach.',
-        image: 'src/assets/img/thumbnail.png',
+        image: thumbnail,
         metrics: [
             { label: 'User Engagement', value: '+240%' },
             { label: 'Time Saved', value: '15hrs/week' },
         ],
     },
     {
-        title: 'Empowering athletes to perform at their best',
+        title: 'Empowering athletic performance',
         tags: 'Strategy, Design, Research',
         category: 'Interface Design',
         description: 'Helping every athlete train smarter, recover faster, and stay motivated with personalized digital experiences that elevate performance.',
-        image: 'src/assets/img/thumbnail-1.png',
+        image: thumbnail1,
         metrics: [
             { label: 'Task Completion', value: '+95%' },
             { label: 'Error Reduction', value: '-78%' },
@@ -43,7 +46,7 @@ const caseStudies: CaseStudy[] = [
         tags: 'Strategy, Design, Research',
         category: 'UX Strategy',
         description: 'A digital collaboration hub that empowers healthcare professionals worldwide to share, learn, and act together in real time.',
-        image: 'src/assets/img/thumbnail-2.png',
+        image: thumbnail2,
         metrics: [
             { label: 'Conversion Rate', value: '+180%' },
             { label: 'Cart Abandonment', value: '-65%' },

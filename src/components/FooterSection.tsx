@@ -4,7 +4,7 @@ import { ArrowRight, Linkedin, Facebook, Instagram, Youtube, Twitter } from 'luc
 
 export const FooterSection: React.FC = () => {
     return (
-        <section className="relative z-20 bg-[#030303] pt-20 pb-8 px-4 md:px-8">
+        <section className="relative z-20 pt-20 pb-8 px-4 md:px-8" style={{ backgroundColor: 'var(--bg-dark)' }}>
             <div className="max-w-[1640px] mx-auto">
                 {/* Contact Form Card */}
                 <motion.div

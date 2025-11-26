@@ -29,7 +29,7 @@ const App: React.FC = () => {
 
       {/* PRE-VORTEX CONTENT */}
       <div className="relative z-20 -mb-40" style={{ backgroundColor: 'var(--bg-dark)' }} data-theme="dark">
-        <HeroSection />
+        <HeroSection videoRef={videoRef} />
         <VideoSection ref={videoRef} isLocked={isLocked} />
         <LogoWallSection />
       </div>

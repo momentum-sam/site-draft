@@ -46,7 +46,7 @@ export const LogoWallSection: React.FC = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setTimeIndex((prev) => prev + 1);
-        }, 3000); // All change every 3 seconds
+        }, 2182); // All change every 4 beats at 110 BPM (approx 2.18s)
 
         return () => clearInterval(interval);
     }, []);

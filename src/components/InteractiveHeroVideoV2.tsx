@@ -387,8 +387,8 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
                         className="absolute inset-0 flex items-center justify-center pointer-events-none"
                     >
                         <div className="bg-black/80 backdrop-blur-md rounded-full px-8 py-4 flex items-center gap-3 border-2 border-white shadow-2xl">
-                            <Play className="w-8 h-8 text-white fill-current" />
-                            <span className="text-white font-semibold text-xl">Play</span>
+                            <Play className="w-6 h-6 text-white fill-current" />
+                            <span className="text-white font-semibold text-xl">Play reel</span>
                         </div>
                     </motion.div>
                 )}

@@ -59,3 +59,17 @@ html {
     background-size: 4px 4px;
     opacity: 0.1;
 }
+
+/* Glimmer Animation */
+@keyframes glimmer {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+.animate-glimmer {
+    animation: glimmer 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}

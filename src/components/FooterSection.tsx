@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Linkedin, Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
+import LogoLight from '../assets/logo/Logo-Light.svg';
 
 export const FooterSection: React.FC = () => {
     return (
@@ -137,7 +138,13 @@ export const FooterSection: React.FC = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
                         {/* Logo Column */}
                         <div className="col-span-1 md:col-span-2 lg:col-span-1">
-                            <h3 className="text-2xl font-medium mb-8">HTEC Momentum<span className="text-[#FDB447]">*</span></h3>
+                            <div className="mb-8 flex items-center gap-1">
+                                <img
+                                    src={LogoLight}
+                                    alt="HTEC Momentum"
+                                    className="h-6"
+                                />
+                            </div>
 
                             <div className="flex flex-col space-y-4">
                                 <a href="#" className="flex items-center group text-lg hover:text-[#FDB447] transition-colors">

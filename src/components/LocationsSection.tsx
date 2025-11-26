@@ -4,7 +4,7 @@ import { SectionLink } from './SectionLink';
 
 export const LocationsSection: React.FC = () => {
     return (
-        <section className="relative z-20 bg-white text-black px-5 md:px-10 lg:px-16 py-24 md:py-32 rounded-b-[32px]" data-theme="light">
+        <section className="relative z-20 bg-white text-black px-5 md:px-10 lg:px-12 py-24 md:py-32 rounded-b-[32px]" data-theme="light">
             <div className="max-w-[1640px] mx-auto">
                 <div className="grid grid-cols-12 gap-8">
                     {/* Left - Heading */}

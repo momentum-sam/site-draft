@@ -34,7 +34,7 @@ const caseStudies: CaseStudy[] = [
         title: 'Empowering athletic performance',
         tags: 'Strategy, Design, Research',
         category: 'Interface Design',
-        description: 'Helping every athlete train smarter, recover faster, and stay motivated with personalized digital experiences that elevate performance.',
+        description: 'Helping every athlete train smarter, recover faster, and stay motivated with personalized experiences that elevate performance.',
         image: thumbnail1,
         metrics: [
             { label: 'Task Completion', value: '+95%' },
@@ -57,26 +57,34 @@ const caseStudies: CaseStudy[] = [
 
 export const OurWorkSection: React.FC = () => {
     return (
-        <section className="relative z-20 bg-white rounded-t-[32px] px-5 md:px-10 lg:px-16 py-16 md:py-24" data-theme="light">
+        <section className="relative z-20 bg-white rounded-t-[32px] px-5 md:px-10 lg:px-12 py-16 md:py-24" data-theme="light">
             <div className="max-w-[1640px] mx-auto">
                 {/* Section Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-16"
-                >
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
-                        <h2 className="lg:w-2/3 text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-tight text-black">
+                <div className="grid grid-cols-12 gap-x-8 mb-16">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="col-span-12 lg:col-span-8"
+                    >
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-tight text-black">
                             Experiences reimagined for businesses like yours
                         </h2>
+                    </motion.div>
 
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="col-span-12 lg:col-span-4 flex items-end justify-start lg:justify-end mt-8 lg:mt-0"
+                    >
                         <SectionLink href="#" theme="light">
                             View our work
                         </SectionLink>
-                    </div>
-                </motion.div>
+                    </motion.div>
+                </div>
 
                 {/* Case Studies Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

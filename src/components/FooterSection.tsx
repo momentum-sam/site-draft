@@ -5,7 +5,7 @@ import LogoLight from '../assets/logo/Logo-Light.svg';
 
 export const FooterSection: React.FC = () => {
     return (
-        <section className="relative z-20 pt-20 pb-8 px-5 md:px-10 lg:px-16" style={{ backgroundColor: 'var(--bg-dark)' }}>
+        <section className="relative z-20 pt-20 pb-8 px-5 md:px-10 lg:px-12" style={{ backgroundColor: 'var(--bg-dark)' }}>
             <div className="max-w-[1640px] mx-auto">
                 {/* Contact Form Card */}
                 <motion.div

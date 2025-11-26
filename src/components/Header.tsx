@@ -57,7 +57,7 @@ export const Header: React.FC = () => {
 
     return (
         <header
-            className={`fixed left-0 w-full px-5 md:px-10 lg:px-16 py-6 flex items-center justify-between z-40 pointer-events-none transition-all duration-500 ${isVisible ? 'top-0' : '-top-32'
+            className={`fixed left-0 w-full px-5 md:px-10 lg:px-12 py-6 flex items-center justify-between z-40 pointer-events-none transition-all duration-500 ${isVisible ? 'top-0' : '-top-32'
                 }`}
             style={{
                 backgroundColor: isDark ? 'rgba(5, 5, 5, 0.8)' : 'rgba(255, 255, 255, 0.8)',

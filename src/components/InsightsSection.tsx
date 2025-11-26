@@ -78,7 +78,7 @@ export const InsightsSection: React.FC = () => {
     return (
         <section className="relative z-20 py-24 rounded-t-[32px]" style={{ backgroundColor: 'var(--bg-dark)' }} data-theme="dark">
             {/* Text content follows standard grid */}
-            <div className="px-5 md:px-10 lg:px-16">
+            <div className="px-5 md:px-10 lg:px-12">
                 <div className="max-w-[1640px] mx-auto">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
                         <h2 className="lg:w-1/2 text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-tight text-white">

@@ -247,6 +247,33 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
         }
     };
 
+    // Controls Visibility Logic
+    const [controlsVisible, setControlsVisible] = useState(false);
+    const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+    const handlePlayerMouseMove = () => {
+        if (!isActive) return;
+
+        setControlsVisible(true);
+
+        if (controlsTimeoutRef.current) {
+            clearTimeout(controlsTimeoutRef.current);
+        }
+
+        controlsTimeoutRef.current = setTimeout(() => {
+            setControlsVisible(false);
+        }, 2500);
+    };
+
+    // Clean up timeout
+    useEffect(() => {
+        return () => {
+            if (controlsTimeoutRef.current) {
+                clearTimeout(controlsTimeoutRef.current);
+            }
+        };
+    }, []);
+
     if (!targetRect) return null;
 
     return (
@@ -266,7 +293,12 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
             className="overflow-hidden shadow-2xl border border-white/10 bg-black cursor-pointer group"
             onClick={handleVideoClick}
             onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseMove={handlePlayerMouseMove}
+            onMouseLeave={() => {
+                setIsHovered(false);
+                setControlsVisible(false);
+                if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+            }}
         >
             <video
                 ref={videoRef}
@@ -286,13 +318,13 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
             <AnimatePresence>
                 {currentProgress > 0.5 && isActive && (
                     <motion.div
-                        className="absolute inset-0 flex flex-col justify-between p-6 bg-gradient-to-b from-black/40 via-transparent to-black/60 custom-controls transition-opacity duration-300 opacity-0 group-hover:opacity-100 pointer-events-none"
+                        className={`absolute inset-0 flex flex-col justify-between p-6 custom-controls transition-opacity duration-300 pointer-events-none ${controlsVisible ? 'opacity-100' : 'opacity-0'}`}
                     >
                         {/* Top Right: Close Button */}
                         <div className="flex justify-end">
                             <button
                                 onClick={handleClose}
-                                className="p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white transition-colors pointer-events-auto"
+                                className="p-2 rounded-full bg-white hover:bg-gray-100 text-black transition-all duration-200 hover:scale-110 active:scale-95 pointer-events-auto shadow-lg ring-1 ring-black/5 cursor-pointer"
                             >
                                 <X size={24} />
                             </button>
@@ -304,29 +336,29 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
                                 {/* Play/Pause */}
                                 <button
                                     onClick={(e) => { e.stopPropagation(); togglePlay(); }}
-                                    className="p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white transition-colors pointer-events-auto"
+                                    className="p-2 rounded-full bg-white hover:bg-gray-100 text-black transition-all duration-200 hover:scale-110 active:scale-95 pointer-events-auto shadow-lg ring-1 ring-black/5 cursor-pointer"
                                 >
                                     {isPlaying ? <Pause size={24} /> : <Play size={24} />}
                                 </button>
 
                                 {/* Timeline */}
                                 <div
-                                    className="flex-1 h-2 bg-white/20 rounded-full cursor-pointer relative overflow-hidden group/timeline pointer-events-auto"
+                                    className="flex-1 h-3 bg-white rounded-full cursor-pointer relative overflow-hidden group/timeline pointer-events-auto shadow-lg ring-1 ring-black/10"
                                     onClick={handleSeek}
                                 >
                                     <div
-                                        className="absolute top-0 left-0 h-full bg-[#FDB447] rounded-full"
+                                        className="absolute top-0 left-0 h-full bg-[#FDB447] rounded-full transition-all duration-100"
                                         style={{ width: `${videoProgress}%` }}
                                     />
                                     <div
-                                        className="absolute top-0 left-0 h-full w-full opacity-0 group-hover/timeline:opacity-100 transition-opacity bg-white/10"
+                                        className="absolute top-0 left-0 h-full w-full opacity-0 group-hover/timeline:opacity-100 transition-opacity bg-black/5"
                                     />
                                 </div>
 
                                 {/* Mute/Unmute */}
                                 <button
                                     onClick={toggleMute}
-                                    className="p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white transition-colors pointer-events-auto"
+                                    className="p-2 rounded-full bg-white hover:bg-gray-100 text-black transition-all duration-200 hover:scale-110 active:scale-95 pointer-events-auto shadow-lg ring-1 ring-black/5 cursor-pointer"
                                 >
                                     {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
                                 </button>
@@ -334,7 +366,7 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
                                 {/* Fullscreen */}
                                 <button
                                     onClick={toggleFullscreen}
-                                    className="p-2 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md text-white transition-colors pointer-events-auto"
+                                    className="p-2 rounded-full bg-white hover:bg-gray-100 text-black transition-all duration-200 hover:scale-110 active:scale-95 pointer-events-auto shadow-lg ring-1 ring-black/5 cursor-pointer"
                                 >
                                     <Maximize size={20} />
                                 </button>

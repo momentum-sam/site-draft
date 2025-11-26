@@ -20,7 +20,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ videoRef }) => {
     };
 
     return (
-        <section className="h-screen flex flex-col justify-between px-6 pb-12 pt-32 md:px-12 md:pb-16 relative">
+        <section className="h-screen flex flex-col justify-between px-5 pb-12 pt-32 md:px-10 lg:px-16 md:pb-16 relative">
             <div className="flex-1"></div>
             <div className="flex flex-col md:flex-row justify-end md:justify-between items-start md:items-end gap-12">
                 <div className="max-w-5xl">

@@ -57,7 +57,7 @@ const caseStudies: CaseStudy[] = [
 
 export const OurWorkSection: React.FC = () => {
     return (
-        <section className="relative z-20 bg-white rounded-t-[32px] px-8 md:px-16 py-16 md:py-24" data-theme="light">
+        <section className="relative z-20 bg-white rounded-t-[32px] px-5 md:px-10 lg:px-16 py-16 md:py-24" data-theme="light">
             <div className="max-w-[1640px] mx-auto">
                 {/* Section Header */}
                 <motion.div
@@ -112,7 +112,7 @@ export const OurWorkSection: React.FC = () => {
                                     <p className="text-sm text-gray-500 font-medium mb-3 uppercase">
                                         {study.tags}
                                     </p>
-                                    <h3 className="text-2xl font-bold text-black mb-2 group-hover:text-[#FDB447] transition-colors duration-300">
+                                    <h3 className="text-2xl font-bold text-black mb-2 transition-colors duration-300">
                                         {study.title}
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed">

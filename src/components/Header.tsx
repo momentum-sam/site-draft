@@ -57,7 +57,7 @@ export const Header: React.FC = () => {
 
     return (
         <header
-            className={`fixed left-0 w-full pl-10 pr-10 p-6 flex items-center justify-between z-40 pointer-events-none transition-all duration-500 ${isVisible ? 'top-0' : '-top-32'
+            className={`fixed left-0 w-full px-5 md:px-10 lg:px-16 py-6 flex items-center justify-between z-40 pointer-events-none transition-all duration-500 ${isVisible ? 'top-0' : '-top-32'
                 }`}
             style={{
                 backgroundColor: isDark ? 'rgba(5, 5, 5, 0.8)' : 'rgba(255, 255, 255, 0.8)',
@@ -94,7 +94,7 @@ export const Header: React.FC = () => {
                         : 'border-black text-black hover:bg-black hover:text-white'
                         }`}
                 >
-                    Find us on Clutch
+                    Find us ranked #1 on Clutch
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
                         <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>

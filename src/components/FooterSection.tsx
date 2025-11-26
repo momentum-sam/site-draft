@@ -5,7 +5,7 @@ import LogoLight from '../assets/logo/Logo-Light.svg';
 
 export const FooterSection: React.FC = () => {
     return (
-        <section className="relative z-20 pt-20 pb-8 px-4 md:px-8" style={{ backgroundColor: 'var(--bg-dark)' }}>
+        <section className="relative z-20 pt-20 pb-8 px-5 md:px-10 lg:px-16" style={{ backgroundColor: 'var(--bg-dark)' }}>
             <div className="max-w-[1640px] mx-auto">
                 {/* Contact Form Card */}
                 <motion.div
@@ -13,13 +13,13 @@ export const FooterSection: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="bg-[#F5F5F5] text-black rounded-[32px] p-8 md:p-16 mb-20"
+                    className="bg-[#F5F5F5] text-black rounded-none md:rounded-[32px] p-8 md:p-16 mb-20 -mx-5 md:mx-0"
                 >
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
                         {/* Left Column */}
                         <div className="flex flex-col justify-between">
                             <div>
-                                <h2 className="text-4xl md:text-6xl font-medium tracking-tight mb-6 leading-[1.1]">
+                                <h2 className="text-4xl md:text-6xl font-normal tracking-tight mb-6 leading-[1.1]">
                                     Let's partner to<br />
                                     move your<br />
                                     business forward.

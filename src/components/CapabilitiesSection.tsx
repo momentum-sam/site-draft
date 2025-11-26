@@ -18,7 +18,7 @@ const capabilities: Capability[] = [
 
 export const CapabilitiesSection: React.FC = () => {
     return (
-        <section className="relative z-20 bg-white text-black px-8 md:px-16 py-16 md:py-24" data-theme="light">
+        <section className="relative z-20 bg-white text-black px-5 md:px-10 lg:px-16 py-16 md:py-24" data-theme="light">
             <div className="max-w-[1640px] mx-auto grid grid-cols-12 gap-x-8">
                 {/* Top Section - Heading */}
                 <motion.div
@@ -26,7 +26,7 @@ export const CapabilitiesSection: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="col-span-12 lg:col-span-9 mb-12"
+                    className="col-span-12 lg:col-span-9 mb-20"
                 >
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-tight">
                         Success takes more than just great capabilities. It requires them to work together seamlessly.

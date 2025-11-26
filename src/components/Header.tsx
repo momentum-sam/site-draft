@@ -2,6 +2,26 @@ import React, { useState, useEffect } from 'react';
 import LogoLight from '../assets/logo/Logo-Light.svg';
 import LogoDark from '../assets/logo/Logo-Dark.svg';
 
+interface NavLinkProps {
+    href: string;
+    children: React.ReactNode;
+    isDark: boolean;
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ href, children, isDark }) => (
+    <a
+        href={href}
+        className={`relative group py-1 transition-colors duration-300 ${isDark ? 'text-white' : 'text-black'
+            }`}
+    >
+        {children}
+        <span
+            className={`absolute bottom-0 left-0 right-0 h-[1px] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ${isDark ? 'bg-[#FDB447]' : 'bg-black'
+                }`}
+        />
+    </a>
+);
+
 export const Header: React.FC = () => {
     const [theme, setTheme] = useState<'dark' | 'light'>('dark');
     const [isVisible, setIsVisible] = useState(true);
@@ -74,14 +94,10 @@ export const Header: React.FC = () => {
                     />
                 </a>
                 <nav className="hidden md:flex gap-8 text-sm font-medium pointer-events-auto">
-                    <a href="#" className={`hover:underline transition-all duration-500 ${isDark ? 'text-white' : 'text-black'
-                        }`}>WORK</a>
-                    <a href="#" className={`hover:underline transition-all duration-500 ${isDark ? 'text-white' : 'text-black'
-                        }`}>CAPABILITIES</a>
-                    <a href="#" className={`hover:underline transition-all duration-500 ${isDark ? 'text-white' : 'text-black'
-                        }`}>CAREERS</a>
-                    <a href="#" className={`hover:underline transition-all duration-500 ${isDark ? 'text-white' : 'text-black'
-                        }`}>INSIGHTS</a>
+                    <NavLink href="#" isDark={isDark}>WORK</NavLink>
+                    <NavLink href="#" isDark={isDark}>CAPABILITIES</NavLink>
+                    <NavLink href="#" isDark={isDark}>CAREERS</NavLink>
+                    <NavLink href="#" isDark={isDark}>INSIGHTS</NavLink>
                 </nav>
             </div>
             <div className="hidden md:flex items-center gap-4 pointer-events-auto">

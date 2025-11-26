@@ -3,7 +3,7 @@ import { DitherOverlay } from './components/DitherOverlay';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { VideoSection } from './components/VideoSection';
-import { InteractiveHeroVideo } from './components/InteractiveHeroVideo';
+import { InteractiveHeroVideoV2 } from './components/InteractiveHeroVideoV2';
 import { LogoWallSection } from './components/LogoWallSection';
 import { VortexSection } from './components/VortexSection';
 import { FooterSection } from './components/FooterSection';
@@ -23,7 +23,7 @@ const App: React.FC = () => {
       {/* Global Overlay Effects */}
       <DitherOverlay />
 
-      <InteractiveHeroVideo targetRef={videoRef} setIsLocked={setIsLocked} />
+      <InteractiveHeroVideoV2 targetRef={videoRef} setIsLocked={setIsLocked} />
 
       <Header />
 

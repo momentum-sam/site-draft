@@ -62,11 +62,11 @@ export const CapabilitiesSection: React.FC = () => {
                         >
                             <div className="py-8 md:py-10 flex items-center justify-between gap-8">
                                 {/* Left - Number and Title */}
-                                <div className="flex items-center gap-6 md:gap-8 flex-1">
+                                <div className="flex items-start gap-10 flex-1">
                                     {/* Number with Circle Background on Hover */}
-                                    <div className="relative flex-shrink-0 w-16 h-16 flex items-center justify-center">
-                                        <div className="absolute inset-0 bg-[#FDB447] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center" style={{ transformOrigin: 'center' }} />
-                                        <span className="relative z-10 text-sm md:text-base italic text-gray-500 group-hover:text-black transition-colors duration-300">
+                                    <div className="relative flex-shrink-0 flex items-center justify-center">
+                                        <div className="absolute w-24 h-24 bg-[#FDB447] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out origin-center -top-14" />
+                                        <span className="relative z-10 text-sm md:text-base italic font-bold text-gray-500 group-hover:text-black transition-colors duration-300">
                                             {capability.id}
                                         </span>
                                     </div>

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import LogoLight from '../assets/logo/Logo-Light.svg';
+import LogoDark from '../assets/logo/Logo-Dark.svg';
 
 export const Header: React.FC = () => {
     const [theme, setTheme] = useState<'dark' | 'light'>('dark');
@@ -64,19 +66,13 @@ export const Header: React.FC = () => {
             }}
         >
             <div className="flex items-center gap-20">
-                <div className="flex items-center gap-2 pointer-events-auto">
-                    <div
-                        className={`w-8 h-8 border rounded-full flex items-center justify-center animate-spin-slow transition-colors duration-500 ${isDark ? 'border-white' : 'border-black'
-                            }`}
-                    >
-                        <div className={`w-2 h-2 rounded-full transition-colors duration-500 ${isDark ? 'bg-white' : 'bg-black'
-                            }`} />
-                    </div>
-                    <span className={`font-bold text-xl tracking-tighter transition-colors duration-500 ${isDark ? 'text-white' : 'text-black'
-                        }`}>
-                        HTEC Momentum
-                    </span>
-                </div>
+                <a href="#" className="flex items-center pointer-events-auto pb-2">
+                    <img
+                        src={isDark ? LogoLight : LogoDark}
+                        alt="HTEC Momentum"
+                        className="h-5 transition-opacity duration-500"
+                    />
+                </a>
                 <nav className="hidden md:flex gap-8 text-sm font-medium pointer-events-auto">
                     <a href="#" className={`hover:underline transition-all duration-500 ${isDark ? 'text-white' : 'text-black'
                         }`}>WORK</a>
@@ -94,8 +90,8 @@ export const Header: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`px-6 py-3 border rounded-full text-sm font-medium flex items-center gap-2 transition-all duration-500 ${isDark
-                            ? 'border-white text-white hover:bg-white hover:text-black'
-                            : 'border-black text-black hover:bg-black hover:text-white'
+                        ? 'border-white text-white hover:bg-white hover:text-black'
+                        : 'border-black text-black hover:bg-black hover:text-white'
                         }`}
                 >
                     Find us on Clutch

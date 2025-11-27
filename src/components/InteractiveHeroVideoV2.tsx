@@ -11,7 +11,7 @@ interface InteractiveHeroVideoV2Props {
 export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ targetRef, setIsLocked }) => {
     const { scrollY } = useScroll();
     const mouseX = useMotionValue(0);
-    const smoothMouseX = useSpring(mouseX, { stiffness: 150, damping: 20 });
+    const smoothMouseX = useSpring(mouseX, { stiffness: 300, damping: 30 });
 
     const [targetRect, setTargetRect] = useState<DOMRect | null>(null);
     const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
@@ -19,13 +19,12 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
     const [isActive, setIsActive] = useState(false); // User has clicked to "activate" the video
     const [isHovered, setIsHovered] = useState(false);
     const [isLockedInternal, setIsLockedInternal] = useState(false); // Internal tracking of lock state
-    const [currentProgress, setCurrentProgress] = useState(0); // Track current scroll progress
+    const [isScrollThresholdPassed, setIsScrollThresholdPassed] = useState(false); // Optimization: Track if past threshold
 
     // Video State
     const [isPlaying, setIsPlaying] = useState(true);
     const [videoProgress, setVideoProgress] = useState(0);
     const [duration, setDuration] = useState(0);
-    const [currentTime, setCurrentTime] = useState(0);
 
     const videoRef = useRef<HTMLVideoElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -81,7 +80,7 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
     }
 
     const progress = useTransform(scrollY, [startScroll, endScroll], [0, 1]);
-    const smoothProgress = useSpring(progress, { stiffness: 200, damping: 30, mass: 0.5 });
+    const smoothProgress = useSpring(progress, { stiffness: 300, damping: 30, mass: 0.5 });
 
     // Lock state and progress tracking
     useEffect(() => {
@@ -89,7 +88,13 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
             const locked = v >= 0.99;
             setIsLocked(locked);
             setIsLockedInternal(locked);
-            setCurrentProgress(v); // Track current progress
+
+            // Optimization: Only update state when crossing the threshold to prevent re-renders
+            const passed = v > 0.5;
+            setIsScrollThresholdPassed(prev => {
+                if (prev !== passed) return passed;
+                return prev;
+            });
         });
         return () => unsubscribe();
     }, [smoothProgress, setIsLocked]);
@@ -129,7 +134,7 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
         if ((e.target as HTMLElement).closest('.custom-controls')) return;
 
         // If controls are active (video is in final position), just toggle play/pause
-        if (currentProgress > 0.5 && isActive) {
+        if (smoothProgress.get() > 0.5 && isActive) {
             togglePlay();
             return;
         }
@@ -142,17 +147,10 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
             setIsActive(true);
             setIsMuted(false);
 
-            // Custom smooth scroll with better easing
-            const startScrollPos = window.scrollY;
-            const scrollDistance = endScroll - startScrollPos;
-
-            // Use Framer Motion's animate for smooth, controlled scrolling
-            animate(0, scrollDistance, {
-                duration: 1.2,
-                ease: [0.25, 0.1, 0.25, 1],
-                onUpdate: (latest) => {
-                    window.scrollTo(0, startScrollPos + latest);
-                }
+            // Native smooth scroll to avoid main thread blocking/delay
+            window.scrollTo({
+                top: endScroll,
+                behavior: 'smooth'
             });
 
             if (videoRef.current) {
@@ -230,8 +228,10 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
 
     const handleTimeUpdate = () => {
         if (videoRef.current) {
-            setCurrentTime(videoRef.current.currentTime);
-            setVideoProgress((videoRef.current.currentTime / videoRef.current.duration) * 100);
+            // Optimization: Only update state if controls are potentially visible
+            if (isScrollThresholdPassed && isActive) {
+                setVideoProgress((videoRef.current.currentTime / videoRef.current.duration) * 100);
+            }
         }
     };
 
@@ -289,6 +289,7 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
                 height,
                 zIndex: 40,
                 borderRadius,
+                willChange: 'transform, width, height, border-radius', // Hint for browser optimization
             }}
             className="overflow-hidden shadow-2xl border border-white/10 bg-black cursor-pointer group"
             onClick={handleVideoClick}
@@ -316,7 +317,7 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
 
             {/* Custom Controls Overlay */}
             <AnimatePresence>
-                {currentProgress > 0.5 && isActive && (
+                {isScrollThresholdPassed && isActive && (
                     <motion.div
                         className={`absolute inset-0 flex flex-col justify-between p-6 custom-controls transition-opacity duration-300 pointer-events-none ${controlsVisible ? 'opacity-100' : 'opacity-0'}`}
                     >
@@ -386,7 +387,7 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
                         transition={{ duration: 0.2 }}
                         className="absolute inset-0 flex items-center justify-center pointer-events-none"
                     >
-                        <div className="bg-black/80 backdrop-blur-md rounded-full px-8 py-4 flex items-center gap-3 border-2 border-white shadow-2xl">
+                        <div className="bg-black/90 rounded-full px-8 py-4 flex items-center gap-3 border-2 border-white shadow-2xl">
                             <Play className="w-6 h-6 text-white fill-current" />
                             <span className="text-white font-semibold text-xl">Play reel</span>
                         </div>

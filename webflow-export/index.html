@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex Section - Webflow Export</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Load Three.js from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+
+    <!-- DITHER OVERLAY -->
+    <div class="dither-overlay">
+        <!-- SVG Noise Filter -->
+        <svg class="noise-svg">
+            <filter id="noiseFilter">
+                <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+                <feColorMatrix type="saturate" values="0" />
+            </filter>
+            <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+        </svg>
+
+        <!-- Scanlines -->
+        <div class="scanlines"></div>
+    </div>
+
+    <!-- VORTEX SECTION WRAPPER -->
+    <!-- In Webflow, this would be your Section element -->
+    <div id="vortex-section" class="vortex-section">
+
+        <!-- Sticky Viewport Wrapper -->
+        <div class="sticky-wrapper">
+
+            <!-- Gradient Mask -->
+            <div class="gradient-mask"></div>
+
+            <!-- 3D Scene Container -->
+            <div id="canvas-container" class="canvas-container"></div>
+
+            <!-- Scroll Progress Indicator -->
+            <div class="scroll-progress-container">
+                <div class="scroll-track">
+                    <div id="scroll-bar" class="scroll-bar"></div>
+                </div>
+            </div>
+
+            <!-- CONTENT LAYER -->
+            <div class="content-layer">
+
+                <!-- PHASE 1: CLARITY -->
+                <div id="p1-container" class="phase-container">
+                    <h2 class="phase-heading">
+                        Infinite possiblities mean infinite noise
+                    </h2>
+                </div>
+
+                <!-- PHASE 2: DEFINITION -->
+                <div id="p2-container" class="phase-container">
+                    <h2 class="phase-heading">
+                        We define what's<br />worth building and why
+                    </h2>
+                </div>
+
+                <!-- PHASE 3: EXPANSION -->
+                <div id="p3-container" class="phase-container">
+                    <h2 class="phase-heading">
+                        So you can turn direction into momentum
+                    </h2>
+                    <div class="cta-wrapper">
+                        <button id="cta-button" class="cta-button">
+                            <span>Let's define what's next together</span>
+                            <div class="icon-circle">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

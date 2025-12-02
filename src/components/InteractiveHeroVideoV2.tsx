@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionValue, AnimatePresence, animate } from 'framer-motion';
-import { Play, Pause, Volume2, VolumeX, Maximize, X } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Maximize, X, RotateCcw } from 'lucide-react';
 import reel from '../assets/reel.mp4';
 
 interface InteractiveHeroVideoV2Props {
@@ -191,9 +191,35 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
     const togglePlay = () => {
         if (videoRef.current) {
             if (videoRef.current.paused) {
+                // Scroll back to video if we are far away
+                const currentScroll = window.scrollY || document.documentElement.scrollTop;
+                if (Math.abs(currentScroll - endScroll) > 100) {
+                    window.scrollTo({
+                        top: endScroll,
+                        behavior: 'smooth'
+                    });
+                }
                 videoRef.current.play();
             } else {
                 videoRef.current.pause();
+            }
+        }
+    };
+
+    const handleRestart = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        if (videoRef.current) {
+            videoRef.current.currentTime = 0;
+            videoRef.current.play();
+            setIsPlaying(true);
+
+            // Also ensure we are looking at the video
+            const currentScroll = window.scrollY || document.documentElement.scrollTop;
+            if (Math.abs(currentScroll - endScroll) > 100) {
+                window.scrollTo({
+                    top: endScroll,
+                    behavior: 'smooth'
+                });
             }
         }
     };
@@ -329,8 +355,17 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
                     <motion.div
                         className={`absolute inset-0 flex flex-col justify-between p-6 custom-controls transition-opacity duration-300 pointer-events-none ${controlsVisible ? 'opacity-100' : 'opacity-0'}`}
                     >
-                        {/* Top Right: Close Button */}
-                        <div className="flex justify-end">
+                        {/* Top Controls: Restart and Close */}
+                        <div className="flex justify-between items-start w-full">
+                            <button
+                                onClick={handleRestart}
+                                className="p-2 rounded-full bg-white hover:bg-gray-100 text-black transition-all duration-200 hover:scale-110 active:scale-95 pointer-events-auto shadow-lg ring-1 ring-black/5 cursor-pointer flex items-center gap-2"
+                                title="Restart Video"
+                            >
+                                <RotateCcw size={20} />
+                                <span className="text-sm pr-2 font-medium hidden sm:inline">Restart</span>
+                            </button>
+
                             <button
                                 onClick={handleClose}
                                 className="p-2 rounded-full bg-white hover:bg-gray-100 text-black transition-all duration-200 hover:scale-110 active:scale-95 pointer-events-auto shadow-lg ring-1 ring-black/5 cursor-pointer"
@@ -399,6 +434,30 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
                             <Play className="w-6 h-6 text-white fill-current" />
                             <span className="text-white font-semibold text-xl">Play reel</span>
                         </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Resume Overlay - Show when active but paused AND hovered */}
+            <AnimatePresence>
+                {isActive && !isPlaying && isHovered && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.2 }}
+                        className="absolute inset-0 flex items-center justify-center pointer-events-none z-50"
+                    >
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation(); // Prevent parent click
+                                togglePlay();
+                            }}
+                            className="bg-black/90 rounded-full px-8 py-4 flex items-center gap-3 border-2 border-white shadow-2xl pointer-events-auto cursor-pointer hover:scale-105 transition-transform"
+                        >
+                            <Play className="w-6 h-6 text-white fill-current" />
+                            <span className="text-white font-semibold text-xl">Resume</span>
+                        </button>
                     </motion.div>
                 )}
             </AnimatePresence>

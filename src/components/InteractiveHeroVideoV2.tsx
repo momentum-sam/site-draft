@@ -62,7 +62,15 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
             const halfWidth = startingWidth / 2;
-            const clampedX = Math.max(halfWidth, Math.min(window.innerWidth - halfWidth, e.clientX));
+
+            // Determine margin based on screen width
+            // Max margin is 40px as per user request
+            const margin = window.innerWidth >= 768 ? 40 : 20;
+
+            const minX = halfWidth + margin;
+            const maxX = window.innerWidth - halfWidth - margin;
+
+            const clampedX = Math.max(minX, Math.min(maxX, e.clientX));
             mouseX.set(clampedX);
         };
         window.addEventListener('mousemove', handleMouseMove);

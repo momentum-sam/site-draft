@@ -65,11 +65,16 @@ html {
     0% {
         transform: translateY(-100%);
     }
+
+    50% {
+        transform: translateY(200%);
+    }
+
     100% {
-        transform: translateY(100%);
+        transform: translateY(200%);
     }
 }
 
 .animate-glimmer {
-    animation: glimmer 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    animation: glimmer 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

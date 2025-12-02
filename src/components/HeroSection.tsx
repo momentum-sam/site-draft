@@ -33,7 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ videoRef }) => {
                     onClick={handleScrollToVideo}
                 >
                     <div className="w-[1px] h-16 bg-white/20 relative overflow-hidden">
-                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-white to-transparent -translate-y-full animate-glimmer"></div>
+                        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-[#FDB447] to-transparent -translate-y-full animate-glimmer"></div>
                     </div>
                     <div className="flex flex-col items-center gap-2 transition-colors duration-300">
                         <span className="text-xs uppercase tracking-widest text-gray-400 writing-vertical-rl group-hover:text-[#FDB447] transition-colors duration-300">Find your momentum</span>

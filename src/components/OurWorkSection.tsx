@@ -31,7 +31,7 @@ const caseStudies: CaseStudy[] = [
         ],
     },
     {
-        title: 'Empowering athletic performance',
+        title: 'Empowering athletic performance and recovery',
         tags: 'Strategy, Design, Research',
         category: 'Interface Design',
         description: 'Helping every athlete train smarter, recover faster, and stay motivated with personalized experiences that elevate performance.',
@@ -115,12 +115,12 @@ export const OurWorkSection: React.FC = () => {
                             </div>
 
                             {/* Content */}
-                            <div className="space-y-4">
+                            <div className="space-y-4 pr-8">
                                 <div>
                                     <p className="text-sm text-gray-500 font-medium mb-3 uppercase">
                                         {study.tags}
                                     </p>
-                                    <h3 className="text-2xl font-bold text-black mb-2 transition-colors duration-300">
+                                    <h3 className="text-2xl font-regular text-black mb-2 transition-colors duration-300">
                                         {study.title}
                                     </h3>
                                     <p className="text-gray-600 leading-relaxed">

@@ -12,6 +12,7 @@ import { OurWorkSection } from './components/OurWorkSection';
 import { CapabilitiesSection } from './components/CapabilitiesSection';
 import { InsightsSection } from './components/InsightsSection';
 import { LocationsSection } from './components/LocationsSection';
+import CognitiveDesignCard from './components/CognitiveDesignCard';
 
 const App: React.FC = () => {
   const videoRef = React.useRef<HTMLDivElement>(null);

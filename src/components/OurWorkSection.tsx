@@ -69,7 +69,7 @@ export const OurWorkSection: React.FC = () => {
                         className="col-span-12 lg:col-span-8"
                     >
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight leading-tight text-black">
-                            Experiences reimagined for businesses like yours
+                            See how we reimagined experiences for businesses like yours
                         </h2>
                     </motion.div>
 

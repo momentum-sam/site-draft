@@ -78,3 +78,22 @@ html {
 .animate-glimmer {
     animation: glimmer 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+/* Gradient Text Effect */
+.text-gradient-forward {
+    background: linear-gradient(45deg, #fdb447 63%, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Make gradient text visible when selected */
+.text-gradient-forward::selection {
+    -webkit-text-fill-color: #000000;
+    background-color: #FDB447;
+}
+
+.text-gradient-forward::-moz-selection {
+    -webkit-text-fill-color: #000000;
+    background-color: #FDB447;
+}

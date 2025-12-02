@@ -11,7 +11,7 @@ interface InteractiveHeroVideoV2Props {
 export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ targetRef, setIsLocked }) => {
     const { scrollY } = useScroll();
     const mouseX = useMotionValue(0);
-    const smoothMouseX = useSpring(mouseX, { stiffness: 300, damping: 30 });
+    const smoothMouseX = useSpring(mouseX, { stiffness: 150, damping: 20 });
 
     const [targetRect, setTargetRect] = useState<DOMRect | null>(null);
     const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
@@ -30,8 +30,8 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
     const containerRef = useRef<HTMLDivElement>(null);
 
     // Constants
-    const startingHeight = 280;
-    const startingWidth = startingHeight * (16 / 9); // ~498px
+    const startingHeight = 320;
+    const startingWidth = startingHeight * (16 / 9); // ~568px
 
     // Update target rect on resize and mount
     useEffect(() => {
@@ -88,7 +88,7 @@ export const InteractiveHeroVideoV2: React.FC<InteractiveHeroVideoV2Props> = ({ 
     }
 
     const progress = useTransform(scrollY, [startScroll, endScroll], [0, 1]);
-    const smoothProgress = useSpring(progress, { stiffness: 300, damping: 30, mass: 0.5 });
+    const smoothProgress = useSpring(progress, { stiffness: 150, damping: 20, mass: 0.5 });
 
     // Lock state and progress tracking
     useEffect(() => {

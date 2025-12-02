@@ -42,7 +42,7 @@ export const VortexSection: React.FC = () => {
     const p3PointerEvents = useTransform(smoothProgress, (v) => v > 0.80 ? 'auto' : 'none');
 
     return (
-        <div ref={vortexContainerRef} className="relative h-[500vh] z-10 -mb-10" style={{ backgroundColor: 'var(--bg-dark)' }} data-theme="dark">
+        <div ref={vortexContainerRef} className="relative h-[500vh] z-10 -mb-40" style={{ backgroundColor: 'var(--bg-dark)' }} data-theme="dark">
 
             {/* Sticky Viewport Wrapper */}
             <div className="sticky top-0 left-0 w-full h-screen overflow-hidden">
@@ -74,7 +74,7 @@ export const VortexSection: React.FC = () => {
                         style={{ opacity: p1Opacity, scale: p1Scale, y: p1Y, pointerEvents: p1PointerEvents as any }}
                     >
                         <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white font-['Open_Sauce_Sans'] mb-6 leading-[1.1]">
-                            Infinite possiblities mean infinite noise
+                            Infinite possiblities creates a lack of clarity
                         </h2>
                     </motion.div>
 

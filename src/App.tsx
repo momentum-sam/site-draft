@@ -24,7 +24,7 @@ const App: React.FC = () => {
       {/* Global Overlay Effects */}
       <DitherOverlay />
 
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <InteractiveHeroVideoV2 targetRef={videoRef} setIsLocked={setIsLocked} />
       </div>
 
@@ -33,7 +33,7 @@ const App: React.FC = () => {
       {/* PRE-VORTEX CONTENT */}
       <div className="relative z-20 -mb-40" style={{ backgroundColor: 'var(--bg-dark)' }} data-theme="dark">
         <HeroSection videoRef={videoRef} />
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <VideoSection ref={videoRef} isLocked={isLocked} />
         </div>
         <LogoWallSection />

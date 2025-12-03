@@ -60,7 +60,7 @@ export const MobileHeroVideo: React.FC = () => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="fixed inset-0 z-[9999] bg-black flex items-center justify-center md:p-4"
+                            className="fixed inset-0 z-[9999] bg-black flex items-center justify-center lg:p-4"
                         >
                             {/* Close Button */}
                             <button
@@ -71,7 +71,7 @@ export const MobileHeroVideo: React.FC = () => {
                             </button>
 
                             {/* Video Container */}
-                            <div className="relative w-full max-w-5xl aspect-video bg-black md:rounded-lg overflow-hidden shadow-2xl md:border border-white/10">
+                            <div className="relative w-full max-w-5xl aspect-video bg-black lg:rounded-lg overflow-hidden shadow-2xl lg:border border-white/10">
                                 <video
                                     ref={fullscreenVideoRef}
                                     className="w-full h-full object-contain"

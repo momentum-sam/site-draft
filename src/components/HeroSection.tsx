@@ -22,7 +22,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ videoRef }) => {
 
     return (
         <section className="h-[100dvh] flex flex-col justify-between px-5 pb-6 pt-0 md:pt-32 md:px-10 lg:px-12 md:pb-12 relative">
-            <div className="md:hidden flex-1 min-h-0 flex flex-col justify-center pt-20 -mx-5 mb-8">
+            <div className="md:hidden flex-1 min-h-0 flex flex-col justify-center pt-20 -mx-5 mb-12">
                 <MobileHeroVideo />
             </div>
             <div className="hidden md:block flex-1"></div>

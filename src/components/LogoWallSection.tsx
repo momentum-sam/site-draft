@@ -53,15 +53,17 @@ export const LogoWallSection: React.FC = () => {
 
     return (
         <section id="logo-wall" className="px-5 md:px-10 lg:px-12 py-0 overflow-hidden" style={{ backgroundColor: 'var(--bg-dark)' }}>
-            <div className="flex flex-col items-center mb-12">
-                <h3 className="text-2xl md:text-3xl text-center max-w-2xl leading-tight text-white">
-                    Trusted to solve the toughest challenges
-                </h3>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 bg-transparent">
-                {LOGO_GROUPS.map((group, i) => (
-                    <LogoSlot key={i} logos={group} index={timeIndex} />
-                ))}
+            <div className="max-w-[1640px] mx-auto">
+                <div className="flex flex-col items-center mb-12">
+                    <h3 className="text-2xl md:text-3xl text-center max-w-2xl leading-tight text-white">
+                        Trusted to solve the toughest challenges
+                    </h3>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 bg-transparent">
+                    {LOGO_GROUPS.map((group, i) => (
+                        <LogoSlot key={i} logos={group} index={timeIndex} />
+                    ))}
+                </div>
             </div>
         </section>
     );

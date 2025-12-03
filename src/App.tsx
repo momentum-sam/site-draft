@@ -31,7 +31,7 @@ const App: React.FC = () => {
       <Header />
 
       {/* PRE-VORTEX CONTENT */}
-      <div className="relative z-20 -mb-40" style={{ backgroundColor: 'var(--bg-dark)' }} data-theme="dark">
+      <div className="relative z-20" style={{ backgroundColor: 'var(--bg-dark)' }} data-theme="dark">
         <HeroSection videoRef={videoRef} />
         <div className="hidden lg:block">
           <VideoSection ref={videoRef} isLocked={isLocked} />

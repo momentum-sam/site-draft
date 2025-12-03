@@ -169,8 +169,10 @@ const SceneContent: React.FC<SceneProps> = ({ scrollProgress }) => {
   const { camera } = useThree();
 
   // Camera Paths
-  const startPos = useMemo(() => new THREE.Vector3(0, 4.0, 7.0), []);
-  const startTarget = useMemo(() => new THREE.Vector3(0, 2.5, 0), []);
+  // Start: Deep inside the upper funnel ("Zoomed In" / "Possibilities")
+  // Z=0 to center the view perfectly
+  const startPos = useMemo(() => new THREE.Vector3(0, 14.0, 0.0), []);
+  const startTarget = useMemo(() => new THREE.Vector3(0, -2.0, 0), []);
 
   // Mid: In the cylinder neck
   // Y=0.0 is center of cylinder.

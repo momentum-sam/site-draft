@@ -31,7 +31,7 @@ export const MobileHeroVideo: React.FC = () => {
     return (
         <>
             {/* Static Hero Video (Mobile Only) */}
-            <div className="relative w-full aspect-[4/3]">
+            <div className="relative w-full h-full">
                 <div className="relative w-full h-full overflow-hidden group cursor-pointer" onClick={handlePlayClick}>
                     <video
                         ref={videoRef}

@@ -74,7 +74,7 @@ export const VortexSection: React.FC = () => {
                         style={{ opacity: p1Opacity, scale: p1Scale, y: p1Y, pointerEvents: p1PointerEvents as any }}
                     >
                         <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-white font-['Open_Sauce_Sans'] mb-6 leading-[1.1]">
-                            Infinite possiblities creates a lack of clarity
+                            Infinite possibilities create a lack of clarity
                         </h2>
                     </motion.div>
 

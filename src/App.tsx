@@ -19,19 +19,23 @@ const App: React.FC = () => {
   const [isLocked, setIsLocked] = React.useState(false);
 
   return (
-    <main className="relative text-white font-sans selection:bg-[#FDB447] selection:text-white" style={{ backgroundColor: 'var(--bg-dark)' }}>
+    <main className="relative text-white font-sans selection:bg-[#FDB447] selection:text-white overflow-x-hidden" style={{ backgroundColor: 'var(--bg-dark)' }}>
 
       {/* Global Overlay Effects */}
       <DitherOverlay />
 
-      <InteractiveHeroVideoV2 targetRef={videoRef} setIsLocked={setIsLocked} />
+      <div className="hidden md:block">
+        <InteractiveHeroVideoV2 targetRef={videoRef} setIsLocked={setIsLocked} />
+      </div>
 
       <Header />
 
       {/* PRE-VORTEX CONTENT */}
       <div className="relative z-20 -mb-40" style={{ backgroundColor: 'var(--bg-dark)' }} data-theme="dark">
         <HeroSection videoRef={videoRef} />
-        <VideoSection ref={videoRef} isLocked={isLocked} />
+        <div className="hidden md:block">
+          <VideoSection ref={videoRef} isLocked={isLocked} />
+        </div>
         <LogoWallSection />
       </div>
 

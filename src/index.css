@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@import "tailwindcss";
+
 /* Define your theme variables directly here in V4 style */
 @theme {
     --font-sans: "Open Sauce Sans", sans-serif;
@@ -18,10 +20,6 @@ body {
     font-family: var(--font-sans);
     /* Utilizing the V4 theme variable */
     overflow-x: hidden;
-}
-
-html {
-    scroll-behavior: smooth;
 }
 
 /* Custom Scrollbar */

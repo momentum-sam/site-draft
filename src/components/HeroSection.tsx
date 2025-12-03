@@ -28,7 +28,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ videoRef }) => {
             <div className="hidden md:block flex-1"></div>
             <div className="flex flex-col items-start gap-8">
                 <div className="max-w-[1400px]">
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-light tracking-tighter break-words">
+                    <h1 className="text-4xl md:text-7xl lg:text-8xl xl:text-[6.5rem] font-light tracking-tighter break-words">
                         We design what moves business <span className="text-gradient-forward">forward</span>
                     </h1>
                 </div>

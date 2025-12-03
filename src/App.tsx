@@ -19,7 +19,7 @@ const App: React.FC = () => {
   const [isLocked, setIsLocked] = React.useState(false);
 
   return (
-    <main className="relative text-white font-sans selection:bg-[#FDB447] selection:text-white overflow-x-hidden" style={{ backgroundColor: 'var(--bg-dark)' }}>
+    <main className="relative text-white font-sans selection:bg-[#FDB447] selection:text-white" style={{ backgroundColor: 'var(--bg-dark)' }}>
 
       {/* Global Overlay Effects */}
       <DitherOverlay />
